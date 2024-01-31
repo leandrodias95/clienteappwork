@@ -6,9 +6,12 @@ import { ClientesFormComponent } from './clientes-form/clientes-form.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { Cliente } from './cliente';
+import { ClientesListaComponent } from './clientes-lista/clientes-lista.component';
+
 @NgModule({
   declarations: [
-    ClientesFormComponent
+    ClientesFormComponent,
+    ClientesListaComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +21,8 @@ import { Cliente } from './cliente';
     
   ],
   exports:[
-    ClientesFormComponent
+    ClientesFormComponent,
+    ClientesListaComponent
   ]
 })
 export class ClientesModule { }

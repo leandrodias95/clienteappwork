@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faTachometer, faColumns, faAngleDown, faBookOpen, faChartArea, faTable } from '@fortawesome/free-solid-svg-icons';
+import { faTachometer, faColumns, faAngleDown, faBookOpen, faChartArea, faTable, faMoneyBill  } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -12,4 +12,5 @@ faangledown= faAngleDown;
 fabookopen= faBookOpen;
 fachartarea= faChartArea;
 fatable= faTable;
+faMoneyBill= faMoneyBill;
 }

@@ -1,0 +1,60 @@
+<h1 class="mt-4">Serviço Prestado</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">
+       Consulta 
+    </li>
+</ol>
+<div class="container">
+    <form #form="ngForm">
+        <div class="row">
+            <div class="col-md-6">
+                <label>Nome Cliente: </label>
+                <input type="text" name="nome" id="inputNome" [(ngModel)]="nome" class="form-control">
+            </div>
+            <div class="col-md-6">
+                <label>Mês: </label>
+                <select name="nome" id="selectMes" [(ngModel)]="mes" class="form-select">
+                    <option value="">Selecione...</option>
+                    <option *ngFor="let mes of meses" [value]="mes">{{mes}}</option>
+                </select>
+            </div>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-md-3"><button type="submit" class="btn btn-success" (click)="consultar()"><fa-icon [icon]="faSearch"></fa-icon>Pesquisar</button></div>
+            <div class="col-md-2">
+                <button class="btn btn-warning" routerLink="/servico-prestado/form"><fa-icon [icon]="faPlus"></fa-icon> Novo</button>
+            </div>
+        </div>
+    </form>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+         <div class="alert alert-warning" role="alert" *ngIf="noFound== true">
+             Cliente não encontrado!
+           </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Preço</th>
+                        <th>Data</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <tr *ngFor=" let servicoPr of dadosServicoPrestado">
+                    <td>{{ servicoPr.cliente.nome}}</td>
+                    <td>{{ servicoPr.descricao}}</td>
+                    <td>{{ servicoPr.valor}}</td>
+                    <td>{{ servicoPr.data}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br/>
+</div>

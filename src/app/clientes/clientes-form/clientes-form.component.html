@@ -1,11 +1,21 @@
 <h1 class="mt-4">cliente</h1>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item active">Cadastro</li>
+        <li class="breadcrumb-item active">{{cliente.id? 'Edição':'Cadastro'}}</li>
     </ol>
 
 <div class="container">
     <form #clienteForm="ngForm" (ngSubmit)="onSubmit()"> 
         <div class="row">
+           <div class="col-md-12">
+            <div class="alert alert-success" role="alert" *ngIf="success== true">
+                Cliente salvo / atualizado com sucesso!
+              </div>
+              <div class="alert alert-danger" role="alert" *ngFor="let error of errors">
+                {{error}}
+              </div>
+           </div> 
+        </div>
+        <div class="row" *ngIf="cliente.id">
             <div class="col-md-6">
             <div class="form-group">
                 <label>ID:</label>
@@ -34,8 +44,12 @@
                 </div>
         </div>
         <div class="row">
-        <div class="col-md-2">
-            <button type="submit" class="btn btn-success"><fa-icon [icon]="faSave"></fa-icon>Salvar</button>
+        <div class="col-md-3">
+            <button type="submit" class="btn btn-success" *ngIf="!cliente.id"><fa-icon [icon]="faSave"></fa-icon>Salvar</button>
+            <button type="submit" class="btn btn-primary" *ngIf="cliente.id"><fa-icon [icon]="faArrowsRotate"></fa-icon>Atualizar</button>
+        </div>
+        <div class="col-md-3">
+            <button type="button" class="btn btn-danger" (click)="voltar()"><fa-icon [icon]="faArrowAltCircleLeft"></fa-icon>Voltar</button>
         </div>
     </div>
     </form>
