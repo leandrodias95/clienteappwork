@@ -19,11 +19,16 @@
                 Serviços Prestados
                 <div class="sb-sidenav-collapse-arrow"><fa-icon [icon]="faangledown"></fa-icon></div>
             </a>
+            <a class="nav-link collapsed" routerLink="/login" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"
+            ><div class="sb-nav-link-icon"><fa-icon [icon]="faPowerOff"></fa-icon></div>
+            Sair
+            <div class="sb-sidenav-collapse-arrow"><fa-icon [icon]="faangledown"></fa-icon></div>
+        </a>
             </div>
         </div>
         <div class="sb-sidenav-footer">
-            <div class="small">Logged in as:</div>
-            Start Bootstrap
+            <div class="small">Logado:</div>
+            {{usuario}}
         </div>
     </nav>
 </div>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +15,7 @@ import { ServicoPrestadoService } from './service/servico-prestado.service';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { LayoutComponent } from './layout/layout.component';
+import { InterceptorInterceptor } from './interceptor/interceptor.interceptor';
 
 
 @NgModule({
@@ -36,7 +37,7 @@ import { LayoutComponent } from './layout/layout.component';
     ServicoPrestadoModule,
     FormsModule
   ],
-  providers: [
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: InterceptorInterceptor, multi: true},
     ClientesService,
     ServicoPrestadoService
   ],
